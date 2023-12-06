@@ -1,0 +1,108 @@
+<div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-12">
+      <div class="login-card">
+        <div>
+          <div>
+            <a class="logo" routerLink="/">
+              <img
+                class="img-fluid for-light"
+                src="../../../assets/images/logo/logo_observatoire.svg"
+                alt="looginpage"
+                width="300"
+                height="80"
+              />
+            </a>
+          </div>
+          <div class="login-main">
+            <form class="theme-form" [formGroup]="loginForm">
+              <h4>Connexion</h4>
+              <p>Bienvenu, veuillez vous connecter avec vos identifiants</p>
+              <div class="form-group">
+                <label class="col-form-label">Addresse e-mail</label>
+                <input
+                  class="form-control"
+                  type="email"
+                  required=""
+                  placeholder="app@yourmail.com"
+                  formControlName="email"
+                />
+                <div
+                  *ngIf="
+                    loginForm.controls.email.touched &&
+                    loginForm.controls.email.errors?.required
+                  "
+                  class="text text-danger mt-1"
+                >
+                  Email est requis
+                </div>
+                <div
+                  *ngIf="
+                    loginForm.controls.email.touched &&
+                    loginForm.controls.email.errors?.email
+                  "
+                  class="text text-danger mt-1"
+                >
+                  Email invalid
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="col-form-label">Mot de passe</label>
+                <input
+                  class="form-control"
+                  [type]="show ? 'text' : 'password'"
+                  formControlName="password"
+                  required=""
+                  placeholder="*********"
+                />
+                <div class="show-hide" (click)="showPassword()" *ngIf="!show">
+                  <span class="voir"></span>
+                </div>
+                <div class="show-hide" (click)="showPassword()" *ngIf="show">
+                  <span class="cacher"></span>
+                </div>
+                <div
+                  *ngIf="
+                    loginForm.controls.password.touched &&
+                    loginForm.controls.password.errors?.required
+                  "
+                  class="text text-danger mt-1"
+                >
+                  mot de passe est requis
+                </div>
+              </div>
+              <div class="form-group mb-0">
+                <div class="checkbox p-0">
+                  <input id="checkbox1" type="checkbox" />
+                  <label class="text-muted" for="checkbox1"
+                    >Se souvenir de moi</label
+                  >
+                </div>
+                <a [routerLink]="'/authentication/forgot-password'" class="link"
+                  >Mot de passe oublié?</a
+                >
+                <div class="text-end mt-3">
+                  <button
+                    class="btn btn-primary d-block w-100"
+                    [disabled]="!loginForm.valid"
+                    (click)="login()"
+                    type="button"
+                  >
+                    <span>Se connecter</span>
+                  </button>
+                </div>
+              </div>
+
+              <p class="mt-4 mb-0">
+                Vous n'avez pas de compte?
+                <a [routerLink]="'/authentication/register/simple'" class="ms-2"
+                  >S'enregistrer</a
+                >
+              </p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

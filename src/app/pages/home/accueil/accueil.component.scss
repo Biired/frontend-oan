@@ -1,0 +1,69 @@
+.page-wrapper.compact-wrapper .page-header {
+  margin-left: 0px;
+  width: 100%;
+}
+
+
+
+.footer {
+
+  margin-left: 0px;
+}
+
+.page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+
+  padding: 0px;
+}
+
+.container-fluid {
+
+  margin: 0px;
+  padding: 0px;
+}
+
+.sectionHeight {
+  height: 100vh;
+}
+
+header {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  background-color: #1f1f1f;
+  height: 10%;
+}
+
+html body .container-fluid.body-content {
+  position: absolute;
+  top: 10%;
+  bottom: 12%;
+  right: 0;
+  left: 0;
+  overflow-y: auto;
+  background-color: #171717;
+  padding-top: 5vh;
+}
+
+.footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 4%;
+}
+
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.page-wrapper.compact-wrapper .page-body-wrapper .page-body {
+  margin-top: 58px;
+  margin-left: 0px;
+}

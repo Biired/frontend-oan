@@ -1,0 +1,226 @@
+<!-- Page Header Start-->
+<div
+  [ngClass]="
+    router.url === '/home' ? 'page-header page-header-custom' : 'page-header'
+  "
+  [class.close_icon]="navServices.collapseSidebar"
+>
+  <div class="header-wrapper row m-0">
+    <app-search></app-search>
+
+    <!-- <div class="left-header col-xxl-5 col-xl-6 col-lg-5 col-md-4 col-sm-3 p-0">
+      <app-swiper></app-swiper>
+    </div> -->
+    <div class="row">
+      <div class="col-md-3">
+        <img
+          *ngIf="router.url === '/home'"
+          class="img-fluid float-left"
+          width="150"
+          src="../assets/images/logo/logo-white.svg"
+          alt=""
+        />
+      </div>
+      <div class="col-md-6">
+        <div class="nav-right text-center">
+          <ul class="nav-menus">
+            <li class="mega-menu">
+              <a class="nav-link" routerLink="/home" routerLinkActive="active"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-home"
+                >
+                  <path
+                    d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"
+                  ></path>
+                  <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                </svg>
+                <span>Accueil</span>
+              </a>
+            </li>
+            <li *ngIf="isConnect" class="mega-menu">
+              <a
+                class="nav-link active"
+                routerLink="dashboard/default"
+                routerLinkActive="active"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-pie-chart"
+                >
+                  <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                  <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                </svg>
+                <span>Tableau de bord</span>
+              </a>
+            </li>
+            <li class="mega-menu">
+              <a class="nav-link" href="#!"
+                ><svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  class="feather feather-layers"
+                >
+                  <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                  <polyline points="2 17 12 22 22 17"></polyline>
+                  <polyline points="2 12 12 17 22 12"></polyline>
+                </svg>
+                <span>Couches</span>
+              </a>
+            </li>
+            <li class="mega-menu">
+              <a class="nav-link" href="#!"
+                ><i class="fa fa-dashboard" style="margin-right: 5px"></i
+                ><span>Indicateurs</span></a
+              >
+            </li>
+            <!--<li>
+              <div class="mode" (click)="layoutToggle()">
+                <svg>
+                  <use href="assets/svg/icon-sprite.svg#moon"></use>
+                </svg>
+              </div>
+            </li>-->
+          </ul>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="nav-right pull-right right-header p-0 ms-auto">
+          <ul class="nav-menus">
+            <li *ngIf="isConnect" class="profile-nav onhover-dropdown p-0">
+              <app-my-account></app-my-account>
+            </li>
+            <li *ngIf="!isConnect">
+              <button
+                class="btn btn-pill btn-outline-light btn-air-light btn-sm txt-dark custom-login-register-button"
+                type="button"
+                title="btn btn-pill btn-outline-light btn-air-light btn-sm"
+              >
+                <i class="icofont icofont-login"></i> Connexion / Inscription
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="nav-right col-xxl-7 col-xl-6 col-md-7 col-8 pull-right right-header p-0 ms-auto"
+      style="display: none"
+    >
+      <ul class="nav-menus">
+        <li class="mega-menu">
+          <a
+            class="nav-link"
+            routerLink="home/accueil"
+            routerLinkActive="home/accueil"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-home"
+            >
+              <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Accueil</span>
+          </a>
+        </li>
+        <li class="mega-menu">
+          <a class="nav-link active" routerLink="dashboard/default"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-pie-chart"
+            >
+              <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+              <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+            </svg>
+            <span>Tableau de bord</span>
+          </a>
+        </li>
+        <li class="mega-menu">
+          <a class="nav-link" href="#!"
+            ><svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              class="feather feather-layers"
+            >
+              <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+              <polyline points="2 17 12 22 22 17"></polyline>
+              <polyline points="2 12 12 17 22 12"></polyline>
+            </svg>
+            <span>Couches</span>
+          </a>
+        </li>
+        <li class="mega-menu">
+          <a class="nav-link" href="#!"
+            ><i class="fa fa-dashboard" style="margin-right: 5px"></i
+            ><span>Indicateurs</span></a
+          >
+        </li>
+        <li>
+          <div class="mode" (click)="layoutToggle()">
+            <svg>
+              <use href="assets/svg/icon-sprite.svg#moon"></use>
+            </svg>
+          </div>
+        </li>
+        <!-- <li class="cart-nav onhover-dropdown">
+          <app-cart></app-cart>
+        </li>
+        <li class="onhover-dropdown">
+          <app-notification></app-notification>
+        </li>
+        -->
+        <li class="profile-nav onhover-dropdown p-0">
+          <app-my-account></app-my-account>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- Page Header Ends -->
